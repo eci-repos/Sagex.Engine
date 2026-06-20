@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Sagex.Engine.Console/Sagex.Engine.Console.csproj" />
+    <Project Path="src/Sagex.Engine.Core/Sagex.Engine.Core.csproj" />
+    <Project Path="src/Sagex.Engine.Schemas/Sagex.Engine.Schemas.csproj" />
+    <Project Path="src/Sagex.Engine.Validation/Sagex.Engine.Validation.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Sagex.Engine.Tests/Sagex.Engine.Tests.csproj" />
+  </Folder>
+</Solution>
