@@ -14,3 +14,4 @@ Status: Non-normative implementation decision log.
 | 2026-06-19 | Use `JsonSchema.Net` for JSON Schema validation. | Matches the JSON Schema.NET-style validation direction. |
 | 2026-06-19 | Use `fixtures/{valid|invalid}/{schema-definition-name}/{fixture-name}.json`. | Makes fixture intent and schema mapping discoverable by path. |
 | 2026-06-19 | Keep as-built records non-normative. | Prevents implementation progress from being mistaken for Sage-X specification requirements. |
+| 2026-06-21 | Treat local milestones as ISL Construction Boundaries and context packs as minimized Connection Contexts. | Reconciles the local-agent scarce-context strategy with ISL r2 instead of creating a parallel continuation model. |

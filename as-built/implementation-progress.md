@@ -4,7 +4,13 @@ Status: Non-normative implementation progress tracker.
 
 ## Current Execution Point
 
-Awaiting approval for `WP-0007.1: Create fixture contract test harness`.
+M0 reached. Awaiting approval for `WP-0101.1: Define ISL plugin registration fixture`.
+
+## Milestones
+
+| Milestone | Status | Notes |
+| --- | --- | --- |
+| `M0` Local Takeover-Ready Sagex.Engine Foundation | Complete | Phase 0 complete with clean build, passing tests, current as-built records, and local runbook. |
 
 ## Completed
 
@@ -19,12 +25,13 @@ Awaiting approval for `WP-0007.1: Create fixture contract test harness`.
 | `WP-0004.1` | Complete | Added JsonSchema.Net and implemented validation by named schema definition. |
 | `WP-0005.1` | Complete | Defined valid/invalid fixture directory convention and tests. |
 | `WP-0006.1` | Complete | Added the first valid `artifactManifest` fixture and fixture-backed validation test. |
+| `WP-0007.1` | Complete | Added fixture discovery contract tests for valid and invalid fixture folders. |
 
 ## Next
 
 | Work Packet | Status | Planned Action |
 | --- | --- | --- |
-| `WP-0007.1` | Pending approval | Add a contract test harness that discovers fixture files and validates expected pass/fail behavior. |
+| `WP-0101.1` | Pending approval | Define the first ISL plugin registration fixture for Phase 1. |
 
 ## Validation History
 
@@ -46,3 +53,5 @@ Awaiting approval for `WP-0007.1: Create fixture contract test harness`.
 | 2026-06-19 | `dotnet build Sagex.Engine.slnx` | Passed, 0 warnings, 0 errors after fixture convention. |
 | 2026-06-19 | `dotnet test Sagex.Engine.slnx` | Passed, 17 tests after first artifact manifest fixture. |
 | 2026-06-19 | `dotnet build Sagex.Engine.slnx` | Passed, 0 warnings, 0 errors after first artifact manifest fixture. |
+| 2026-06-21 | `dotnet test Sagex.Engine.slnx` | Passed, 21 tests after fixture contract harness. |
+| 2026-06-21 | `dotnet build Sagex.Engine.slnx` | Passed, 0 warnings, 0 errors after fixture contract harness. |
