@@ -15,3 +15,7 @@ Status: Non-normative implementation decision log.
 | 2026-06-19 | Use `fixtures/{valid|invalid}/{schema-definition-name}/{fixture-name}.json`. | Makes fixture intent and schema mapping discoverable by path. |
 | 2026-06-19 | Keep as-built records non-normative. | Prevents implementation progress from being mistaken for Sage-X specification requirements. |
 | 2026-06-21 | Treat local milestones as ISL Construction Boundaries and context packs as minimized Connection Contexts. | Reconciles the local-agent scarce-context strategy with ISL r2 instead of creating a parallel continuation model. |
+| 2026-06-21 | Make local Ollama guidance profile-based with `sagex` and `sagex-isl` context profiles. | Keeps Sage-X core work specification-agnostic and only loads ISL context for ISL plugin or bridge tasks. |
+| 2026-06-21 | Run local Ollama packet work on per-packet Git branches by default. | Makes local-agent experiments reviewable and easy to abandon before acceptance. |
+| 2026-06-21 | Record local-agent attempts in `as-built/local-agent-runs.md` and review them with an operator checklist. | Preserves acceptance/rejection evidence for local autonomous construction attempts. |
+| 2026-06-21 | Provide a patch-application helper that checks a saved patch before applying and then runs tests/build. | Keeps local-agent patch acceptance deterministic and reversible before commit. |

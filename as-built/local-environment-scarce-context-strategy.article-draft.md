@@ -147,12 +147,30 @@ The key files are:
 - `continuation-protocol.md`
 - `local-agent-context-pack.sagex.md`
 - `local-agent-context-pack.isl.md`
+- `isl-context-strategy-reconciliation.md`
+- `local-agent-runs.md`
+- `local-guidance/0001-run-single-work-packet-with-ollama.ps1`
+- `local-guidance/0002-operator-review-checklist.md`
+- `local-guidance/0003-apply-local-agent-patch.ps1`
 
 The normative source remains in:
 
 `C:\Users\esobr\source\repos\Imhotep.Specifications\specs`
 
 This gives local agents a compact starting point while preserving high-resolution references back to the authoritative specifications.
+
+The local guidance scripts add an operator-controlled execution layer:
+
+- `0001` runs one bounded packet through Ollama and requests a patch proposal only.
+- `0002` gives the operator a checklist for reviewing the output.
+- `0003` applies a saved patch only after `git apply --check`, then runs tests and build.
+
+The Ollama runner supports context profiles:
+
+- `sagex` for Sage-X core work.
+- `sagex-isl` for ISL plugin or bridge work.
+
+This matters because Sage-X must remain specification-agnostic. ISL context is loaded only when the active work packet requires ISL plugin or bridge knowledge.
 
 ## Current Sagex.Engine Milestone
 
@@ -183,9 +201,14 @@ At this point, the local crew can continue with a controlled workflow. The agent
 At the start of a session, the local agent reads:
 
 1. `as-built/local-agent-context-pack.sagex.md`
-2. `as-built/local-agent-context-pack.isl.md`
-3. `as-built/implementation-progress.md`
-4. `as-built/implementation-decisions.md`
+2. `as-built/implementation-progress.md`
+3. `as-built/implementation-decisions.md`
+4. `as-built/continuation-protocol.md`
+
+For ISL plugin or bridge work, it also reads:
+
+- `as-built/local-agent-context-pack.isl.md`
+- `as-built/isl-context-strategy-reconciliation.md`
 
 Then it states:
 
@@ -200,8 +223,34 @@ At the end of a session, it updates:
 - progress tracker
 - decision log if a choice was made
 - runbook if local commands changed
+- local-agent run log if an Ollama/local-agent attempt was performed
 
 The session should never end in an ambiguous state.
+
+## Operator-Controlled Local Agent Runs
+
+Sagex.Engine does not assume that local model output is automatically accepted.
+
+The recommended flow is:
+
+1. Start from a clean Git working tree.
+2. Run one packet through the Ollama guidance script.
+3. Keep the local model on a per-packet branch.
+4. Ask for a patch proposal only.
+5. Review the patch with the operator checklist.
+6. Apply a saved patch with the patch helper.
+7. Run tests and build.
+8. Accept, reject, or roll back.
+9. Record the attempt in `as-built/local-agent-runs.md`.
+
+If applied changes are not acceptable and remain uncommitted, the operator can roll them back with:
+
+```powershell
+git restore .
+git clean -fd
+```
+
+This creates a practical safety gate around local autonomous construction.
 
 ## Why This Works
 
@@ -216,6 +265,10 @@ The progress tracker is durable continuation state.
 The decision log is implementation rationale.
 
 The runbook is operational memory.
+
+The local-agent run log is acceptance evidence.
+
+The guidance scripts are operator-controlled execution aids.
 
 The tests are executable evidence.
 

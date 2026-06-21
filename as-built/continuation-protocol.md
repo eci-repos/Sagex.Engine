@@ -56,6 +56,7 @@ Before stopping, update:
 1. `as-built/implementation-progress.md`
 2. `as-built/implementation-decisions.md`, if an implementation choice was made
 3. `as-built/local-runbook.md`, if commands or local operation changed
+4. `as-built/local-agent-runs.md`, if a local-agent attempt was performed
 
 The progress file must clearly show:
 
